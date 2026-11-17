@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Portfolio Customizer | Md. Yeamin</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Noto+Sans+Bengali:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--green:#245b43;--ink:#14231e;--muted:#66736c;--bg:#f4f3ed;--line:#dfe4dc}*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:15px 'DM Sans','Noto Sans Bengali',sans-serif;line-height:1.6}.wrap{max-width:850px;width:92%;margin:36px auto 70px}.top{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap}.top a{color:var(--green);font-weight:700;text-decoration:none}.panel{background:#fff;border:1px solid var(--line);border-radius:18px;padding:24px;margin:18px 0}.eyebrow{font-size:11px;letter-spacing:1.8px;color:var(--green);font-weight:800}h1{font-size:clamp(30px,5vw,42px);line-height:1.15;margin:8px 0}h2{font-size:20px;margin:0 0 14px}p{color:var(--muted)}label{display:block;font-weight:700;font-size:13px;margin:13px 0 5px}input,textarea{width:100%;padding:12px;border:1px solid var(--line);border-radius:10px;font:inherit;color:var(--ink);background:#fff}textarea{min-height:90px;resize:vertical}.colors{display:grid;grid-template-columns:repeat(auto-fit,minmax(155px,1fr));gap:12px}.color{display:flex;align-items:center;gap:10px;border:1px solid var(--line);border-radius:10px;padding:8px}.color input{width:42px;height:36px;padding:2px;border:0}.color span{font-size:13px;font-weight:600}.section-item{border:1px solid var(--line);border-radius:12px;padding:15px;margin:12px 0}.btn{border:0;border-radius:30px;padding:12px 19px;background:var(--green);color:#fff;font-weight:800;cursor:pointer;font:700 14px 'DM Sans',sans-serif}.btn.secondary{background:#e9efe8;color:var(--green)}.btn.remove{background:#f5e8e5;color:#8b3023;padding:8px 12px}.actions{display:flex;gap:10px;flex-wrap:wrap}.note{font-size:13px;background:#f4f7f0;padding:13px;border-radius:10px;color:#44564a}.step{font-weight:800;color:var(--green)}@media(max-width:550px){.panel{padding:17px}}
+</style></head><body><main class="wrap">
+<div class="top"><div><div class="eyebrow">MD. YEAMIN · PORTFOLIO TOOL</div><h1>Portfolio Customizer</h1></div><a href="./">← View website</a></div>
+<p>এই পেজ থেকে নিজের ওয়েবসাইটের পরিচিতি, রং ও অতিরিক্ত Section সাজাতে পারবে। কোডিং লাগবে না।</p>
+<div class="panel"><h2>01 · Basic information / মৌলিক তথ্য</h2>
+<label for="name">Your name / নাম</label><input id="name">
+<label for="role">Job title / পদবি</label><input id="role">
+<label for="organization">Organization / প্রতিষ্ঠান</label><input id="organization">
+<label for="intro">Short introduction / সংক্ষিপ্ত পরিচিতি</label><textarea id="intro"></textarea>
+<label for="email">Email</label><input id="email" type="email">
+<label for="linkedin">LinkedIn profile URL</label><input id="linkedin" type="url">
+</div>
+<div class="panel"><h2>02 · Website colours / ওয়েবসাইটের রং</h2><p>রঙের বক্সে চাপ দিয়ে পছন্দমতো রং বেছে নাও।</p><div class="colors" id="colors"></div></div>
+<div class="panel"><h2>03 · Add your own sections / নতুন Section যোগ</h2><p>যেমন: Publications, Training, Volunteer Experience, Awards, Gallery ইত্যাদি।</p><div id="sections"></div><button class="btn secondary" id="add" type="button">+ Add a section</button></div>
+<div class="panel"><h2>04 · Save changes / পরিবর্তন সংরক্ষণ</h2>
+<p class="note"><b>গুরুত্বপূর্ণ:</b> প্রথমে নিচের বাটনে চাপ দিলে <b>settings.json</b> নামে একটি ফাইল ডাউনলোড হবে। এরপর GitHub repository-তে গিয়ে পুরোনো <b>settings.json</b> ফাইলটি Replace/Upload করতে হবে। Upload হলেই ওয়েবসাইটে পরিবর্তন প্রকাশ পাবে। শুধু এই পেজে পরিবর্তন করলে Live website বদলাবে না।</p>
+<div class="actions"><button class="btn" id="download" type="button">Download my changes ↓</button><button class="btn secondary" id="reset" type="button">Reset to current live settings</button></div>
+<p id="status" aria-live="polite"></p></div>
+<div class="panel"><h2>How to publish / GitHub-এ কীভাবে আপলোড করবে?</h2>
+<p><span class="step">১.</span> Download my changes বাটনে চাপ দিয়ে <b>settings.json</b> ডাউনলোড করো।</p>
+<p><span class="step">২.</span> <a href="https://github.com/yeaminparvez1/Portfolio" target="_blank">GitHub Portfolio repository</a> খোলো।</p>
+<p><span class="step">৩.</span> <b>settings.json</b> ফাইলটি খোলো → পেন্সিল/Edit আইকনের পাশের Upload files অপশন বা repository-র Add file → Upload files ব্যবহার করে নতুন ফাইলটি আপলোড করো। Replace confirmation এলে Confirm করো এবং Commit changes দাও।</p>
+<p><span class="step">৪.</span> GitHub Actions-এ deployment শেষ হলে ওয়েবসাইট Refresh করো।</p>
+<p class="note">নতুন Section-এর শিরোনাম ও লেখা যোগ করা যাবে। একদম নতুন ধরনের design/layout, project card বা navigation পরিবর্তন চাইলে আমাকে বললেই আমি করে দেব।</p></div>
+</main>
+<script>
+const defaults={"name":"Md. Yeamin","role":"Executive – Project & Sustainability","organization":"Textile Today Innovation Hub (TTIH)","intro":"Environmental Science graduate working at the intersection of sustainable chemical management, wastewater improvement and environmental compliance in the textile, apparel and leather industries.","email":"yeaminparvez1@gmail.com","linkedin":"https://www.linkedin.com/in/yeaminparvez1/","colors":{"bg":"#f4f3ed","ink":"#14231e","muted":"#66736c","green":"#245b43","lime":"#c9ef78","line":"#dfe4dc","white":"#ffffff","dark":"#101d19"},"sections":[]};
+const names={bg:"Page background",ink:"Main text",muted:"Secondary text",green:"Main green",lime:"Highlight lime",line:"Borders",white:"Card background",dark:"Hero dark background"};
+let data=structuredClone(defaults);
+const $=id=>document.getElementById(id);
+function esc(s){return String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]))}
+function draw(){
+ ["name","role","organization","intro","email","linkedin"].forEach(k=>$(k).value=data[k]||"");
+ $("colors").innerHTML=Object.entries(names).map(([k,n])=>'<label class="color"><input type="color" data-color="'+k+'" value="'+(data.colors[k]||defaults.colors[k])+'"><span>'+n+'</span></label>').join("");
+ document.querySelectorAll("[data-color]").forEach(el=>el.addEventListener("input",e=>data.colors[e.target.dataset.color]=e.target.value));
+ $("sections").innerHTML="";
+ (data.sections||[]).forEach((s,i)=>{const div=document.createElement("div");div.className="section-item";div.innerHTML='<label>Section title / শিরোনাম</label><input data-title="'+i+'" value="'+esc(s.title)+'"><label>Details / বিবরণ</label><textarea data-text="'+i+'">'+esc(s.text)+'</textarea><button class="btn remove" data-remove="'+i+'" type="button">Remove</button>';$("sections").appendChild(div)});
+ document.querySelectorAll("[data-title]").forEach(e=>e.addEventListener("input",x=>data.sections[+x.target.dataset.title].title=x.target.value));
+ document.querySelectorAll("[data-text]").forEach(e=>e.addEventListener("input",x=>data.sections[+x.target.dataset.text].text=x.target.value));
+ document.querySelectorAll("[data-remove]").forEach(e=>e.addEventListener("click",x=>{data.sections.splice(+x.target.dataset.remove,1);draw()}));
+}
+function collect(){["name","role","organization","intro","email","linkedin"].forEach(k=>data[k]=$(k).value.trim());document.querySelectorAll("[data-color]").forEach(e=>data.colors[e.dataset.color]=e.value)}
+$("add").addEventListener("click",()=>{data.sections.push({title:"New section",text:"Write your details here."});draw()});
+$("download").addEventListener("click",()=>{collect();const blob=new Blob([JSON.stringify(data,null,2)],{type:"application/json"});const url=URL.createObjectURL(blob);const a=document.createElement("a");a.href=url;a.download="settings.json";a.click();URL.revokeObjectURL(url);$("status").textContent="settings.json downloaded. এবার GitHub-এ আপলোড করে Commit changes দাও।"});
+$("reset").addEventListener("click",async()=>{try{const r=await fetch("./settings.json?"+Date.now());if(!r.ok)throw 0;data=await r.json();draw();$("status").textContent="Live settings loaded."}catch(e){data=structuredClone(defaults);draw();$("status").textContent="Default settings restored."}});
+(async()=>{try{const r=await fetch("./settings.json?"+Date.now());if(r.ok)data=await r.json()}catch(e){}draw()})();
+</script></body></html>
