@@ -23,9 +23,37 @@
 <section class="section white" id="certificates"><div class="wrap"><div class="section-head"><div><p class="eyebrow" data-en="07 / CREDENTIALS" data-bn="০৭ / সার্টিফিকেট">07 / CREDENTIALS</p><h2 data-en="Professional certificates." data-bn="প্রফেশনাল সার্টিফিকেট।">Professional certificates.</h2></div></div><div class="cert-note"><strong data-en="Certificates will appear here." data-bn="সার্টিফিকেট এখানে যুক্ত হবে।">Certificates will appear here.</strong><p data-en="No certificate has been uploaded to the portfolio yet. Once you share your verified certificate files (PDF or image), I can add each one with its title, issuing organisation and date. Knowledge areas are not presented as certificates." data-bn="এখনো কোনো সার্টিফিকেট আপলোড করা হয়নি। তুমি যাচাইকৃত সার্টিফিকেটের PDF বা ছবি দিলে আমি শিরোনাম, প্রদানকারী প্রতিষ্ঠান ও তারিখসহ এখানে যুক্ত করে দেব। কোনো বিষয় সম্পর্কে জ্ঞান থাকাকে সার্টিফিকেট হিসেবে দেখানো হবে না।">No certificate has been uploaded to the portfolio yet. Once you share your verified certificate files (PDF or image), I can add each one with its title, issuing organisation and date. Knowledge areas are not presented as certificates.</p></div></div></section>
 <section class="section" id="contact"><div class="wrap"><div class="contact-panel"><p class="eyebrow" data-en="08 / CONTACT" data-bn="০৮ / যোগাযোগ">08 / CONTACT</p><h2 data-en="Have a project in mind?<br>Let's connect." data-bn="কোনো কাজ বা সহযোগিতার ভাবনা আছে?<br>যোগাযোগ করুন।">Have a project in mind?<br>Let's connect.</h2><p class="copy" data-en="For professional opportunities, collaboration or discussions on sustainability and environmental management, feel free to reach out." data-bn="পেশাগত সুযোগ, সহযোগিতা অথবা টেকসই উন্নয়ন ও পরিবেশ ব্যবস্থাপনা বিষয়ে আলোচনার জন্য যোগাযোগ করতে পারেন।">For professional opportunities, collaboration or discussions on sustainability and environmental management, feel free to reach out.</p><div class="contact-links"><a href="mailto:yeaminparvez1@gmail.com">yeaminparvez1@gmail.com ↗</a><a href="https://www.linkedin.com/in/yeaminparvez1/" target="_blank" rel="noopener">LinkedIn ↗</a></div><form class="form" id="contact-form"><input id="visitor-name" type="text" required placeholder="Your name" data-placeholder-en="Your name" data-placeholder-bn="আপনার নাম"><input id="visitor-email" type="email" required placeholder="Your email" data-placeholder-en="Your email" data-placeholder-bn="আপনার ইমেইল"><textarea id="visitor-message" required placeholder="Your message" data-placeholder-en="Your message" data-placeholder-bn="আপনার বার্তা"></textarea><button class="btn" type="submit" data-en="Prepare email ↗" data-bn="ইমেইল তৈরি করুন ↗">Prepare email ↗</button><small style="color:#aebdb4" data-en="This form opens your email app with the message prepared; it does not send or store messages on this website." data-bn="এই ফর্মটি তোমার ইমেইল অ্যাপে বার্তাটি তৈরি করবে; ওয়েবসাইটে কোনো বার্তা সংরক্ষণ বা স্বয়ংক্রিয়ভাবে পাঠানো হয় না।">This form opens your email app with the message prepared; it does not send or store messages on this website.</small></form></div></div></section>
 <section class="section" id="cv-note"><div class="wrap"><p class="copy" data-en="CV download will be activated as soon as you provide your latest CV in PDF format." data-bn="তোমার সর্বশেষ CV PDF দিলে Download CV বাটনটি সক্রিয় করে দেব।">CV download will be activated as soon as you provide your latest CV in PDF format.</p></div></section>
-</main><footer class="footer">© 2026 Md. Yeamin · Dhaka, Bangladesh</footer>
+</main><footer class="footer">© 2026 Md. Yeamin · Dhaka, Bangladesh · <a href="customize.html" style="color:var(--green);font-weight:700">Portfolio Customizer ↗</a></footer>
 <script>
 const toggle=document.getElementById('lang');let bn=false;
 toggle.addEventListener('click',()=>{bn=!bn;document.documentElement.lang=bn?'bn':'en';document.querySelectorAll('[data-en][data-bn]').forEach(el=>{el.innerHTML=bn?el.dataset.bn:el.dataset.en});document.querySelectorAll('[data-placeholder-en]').forEach(el=>{el.placeholder=bn?el.dataset.placeholderBn:el.dataset.placeholderEn});toggle.textContent=bn?'English':'বাংলা'});
 document.getElementById('contact-form').addEventListener('submit',e=>{e.preventDefault();const name=document.getElementById('visitor-name').value;const email=document.getElementById('visitor-email').value;const message=document.getElementById('visitor-message').value;const subject=encodeURIComponent('Portfolio enquiry from '+name);const body=encodeURIComponent('Name: '+name+'\nEmail: '+email+'\n\n'+message);window.location.href='mailto:yeaminparvez1@gmail.com?subject='+subject+'&body='+body;});
+
+</script>
+<script>
+// Loads visual edits exported from customize.html. Missing settings simply keep the original design.
+(async()=>{
+ try{
+  const r=await fetch('./settings.json?'+Date.now());
+  if(!r.ok)return;
+  const s=await r.json();
+  const root=document.documentElement;
+  if(s.colors){Object.entries(s.colors).forEach(([k,v])=>{if(v)root.style.setProperty('--'+k,v)})}
+  const set=(selector,value)=>{const el=document.querySelector(selector);if(el&&value)el.textContent=value};
+  set('.hero h1',s.name);set('.hero .role',s.role);set('.hero .org',s.organization);set('.hero .intro',s.intro);
+  if(s.email){document.querySelectorAll('a[href^="mailto:"]').forEach(a=>{a.href='mailto:'+s.email;if(a.textContent.includes('@'))a.textContent=s.email+' ↗'})}
+  if(s.linkedin){const a=[...document.querySelectorAll('.contact-links a')].find(x=>x.textContent.toLowerCase().includes('linkedin'));if(a)a.href=s.linkedin}
+  if(Array.isArray(s.sections)&&s.sections.length){
+   const contact=document.getElementById('contact');
+   s.sections.forEach((item,i)=>{
+    if(!item.title&&!item.text)return;
+    const section=document.createElement('section');section.className='section custom-added';
+    section.innerHTML='<div class="wrap"><div class="section-head"><div><p class="eyebrow">CUSTOM SECTION</p><h2></h2></div></div><div class="card"><p></p></div></div>';
+    section.querySelector('h2').textContent=item.title||'Additional information';
+    section.querySelector('.card p').textContent=item.text||'';
+    contact.parentNode.insertBefore(section,contact);
+   });
+  }
+ }catch(e){console.warn('Portfolio settings could not be loaded.',e)}
+})();
 </script></body></html>
